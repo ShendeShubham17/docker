@@ -1,0 +1,209 @@
+Q1- What is docker or what is container?
+
+Docker is an open source containerization platform. it enabies developer to package application to containers. it is used to build the 
+containers and it used to manage the life cycle of containers. i used to docker for build the docker images, write the files, put in some 
+registries, run docker images.
+
+Q2  How containers are different from virtual machine ?
+
+container have very light weight in nature and virual machine is very hevy in nature containing all opering system basically virtul 
+machine nothing but virual computer having os, volume , security group , etc.
+container nothing but light weght nature because of they dont have complete operating system but have minimum system dependency to run
+application. for i.e we have need java application in container we have minimum system dependency to run java files or application using 
+that container.
+
+Q-3  What is docker lifecycle?
+
+firstly user have create docker file. docker file nothing but set of instruction and command defines the docker image. for i.e which 
+base image you choose? what are dependency install to run application.
+
+Docker image nothing but set of instruction to build container. using the docker build you have convert docker file into docker image.
+after the create docker image using the docker run command this command use for the execute docker container. we can also pull the container and
+push the container. 
+
+Q-4 What are the different components?
+
+Docker cli is one of the main componet of docker using the cli you can send instruction to docker.
+i.e docker build
+    docker run 
+    docker push 
+    docker pull etc
+
+Docker deemon nothing but hurt of the docker if deemon down the operation not perform by the docker.
+in deemon received file and operation perform regarding docker image and container. so this is main component of docker.
+
+Docker registry nothing but run as container, docker registry use nothing but external docker.
+
+
+Q-5  What are the different between the docker add and docker copy command?
+
+doker add command use when file copy from the url for i.e. if any file need to copy from s3 bucket file available in form link the you 
+can use the docker add command
+docker copy command use when the file need to copy form you existing system then use docker copy command.
+
+Q-6 What are the different between cmd and docker entry point? 
+   
+
+Q-7 What are different types of network
+
+bridge network
+host netowork
+overlay
+macvlan
+
+
+Q-8 can you explain how to isolate networking the container ?
+
+if you have need to create isolate networking the you can create seperate network for each container.
+for example i have two container and need to create isolate from each other then first you create docker 0 network for container A and create bridge network 
+for container B these two container definatly isolated from each other.
+
+
+Q-9 What is multi stage build in docker?
+
+multi stage is allow to build your container in multiple stage to allowing the copy of artifact from one stage to other stage.
+using the multi stage you have create light weight container.
+for example you have container with 800 mb the you have need to create light weight container. then using the multistage build container build in 
+multiple stage and copy artifact from one stage to other stage so you can build light weight container.
+
+
+Q-10  What are the distro less images in dockers?
+
+distro less images is contain only your application and its runtime dependency with minimum operating system libraries. they are very small and light weight images.
+
+Q-11 Real time challenges in dockers?
+
+- docker is single deimons process which can cause single point of failure. if the deimons is slow down or some issue due the some then whole application is down.
+
+-  docker deimons run as root user. which is security threat. any process running as root user can have adverse effect. security threat impact on container and 
+   application on the host.
+
+- Resource constraint : when you have run so many containers on single hosts then you may experience resource constraint. the effect is application slow down or crash.
+
+
+
+Q-12 whare would you step to secure container?
+
+-  you can use distro less  or image with not too many packages are involved on that docker images.  create multi stage image its help to create light weght container and
+  this images help to minimise security thread.
+
+- networking properly try to give seperate networking to each container this help to crate isolated container and help to minimize security thread.
+
+- use utilise scan or syncronise container images.
+
+Q-13 What is Docker ?
+    
+- Docker is open source contaniser platform that allow to you management and deployment application within light weight, isolated software containers.
+
+Q-14 what is docker file ?
+  
+   Docker file is text file that contain instruction to how to build docker images.
+   in docker file is base image, dependencies , application code, and other configuration to build runnable 
+
+
+Q-15 Docker Image ?
+    Docker images is set of instruction is used to create container and execute code inside.
+
+Q-16 how to pull images?
+    Docker pull imagename
+
+Q-17 Docker run -it -d imagename  (-it = interact , -d = detatch  (-it -d these are the flags to attached with images) )
+
+Q-18 Docker ps ( use to show how many container are available) 
+
+Pull command
+
+pull command use for the copy image from docker repository to host system. we have a image and image available on docker hub reposatory so using pull command like 
+
+docker pull imagename : tags or specification of images this command help to pull image from docker repository.
+
+Docker images   : to check how many images are available on your docker account.
+
+Docker serach images name ( to find perticular images  docker hub) 
+Docker search mysql:version name.
+
+Docker ps -a ( this command use mostly when container carry software or file  installation,  not carry any contineos running application ) 
+
+docker inspect container id ( using this command showing container information briefly) 
+
+docker run --name (name of conatainer)  imagename: tag
+
+
+docker run --name (name of container) -it -d imagename:tag  ( for run container in backegrouong / using this command container is running in up condition  i= interactive mode ) 
+      t = terminal ( command line interface se interactive mode and also provide terminal to perform task) ( -d = use for the container run on background mode) 
+
+docker exec = command use for execute command in a running container.
+i.e docker exec -it container name (up container) chose language python, java ( choose language as per images data which run on container)
+
+docker inspect containername  (showing internal information about container like version, names, tages , etc) 
+
+docker run --name -it --rm imagename 
+( docker run --name containerc5 -it --rm python:latest )  
+
+docker stop container name
+docker start containername/id
+docker restart containername/id
+docker rm containername/id 
+
+How to remove images in docker?
+
+firstly we have finding container which are created by respective image.
+then remove all container.
+then delete images which need to remove using following command
+
+command name = docker rmi imagename
+               docker rm containername/id
+
+               docker container prune  ( remove all container from system)r
+               docker system prune
+
+How to create container for the mysql database
+
+$ docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag
+  $ docker run --name mysqlc1 -e MYSQL_ROOT_PASSWORD=shubham -d mysql:latest
+
+docker exec -it containername mysql -u root -p
+
+
+
+Dockerfile
+
+     # The name of the base image use #
+      FROM "ubuntu"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
